@@ -1,6 +1,5 @@
 using DG.Tweening;
 using Kore;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -17,8 +16,6 @@ public class Door : MonoBehaviour, IInteractable
 
     // MultiplesLlaves
     [SerializeField] public SOItem[] keys;
-
-    [SerializeField] bool activarPuertaA;
 
     public GameObject puerta;
 
@@ -77,10 +74,9 @@ public class Door : MonoBehaviour, IInteractable
 
     private void Automatica()
     {
-        if (activarPuertaA)
-        {
-            transform.DOLocalMoveY(-5, 1);
-        }
+
+        transform.DOLocalMoveY(-5, 1);
+
     }
 
     private void Normal()
@@ -95,7 +91,24 @@ public class Door : MonoBehaviour, IInteractable
 
     private void MultiplesLlaves()
     {
+        bool hasAllKeys = true;
+        foreach (SOItem requiredKey in keys)
+        {
+            if (!inventoryHandler.inventory.Contains(requiredKey))
+            {
+                hasAllKeys = false;
+                break;
+            }
+        }
 
+        if (hasAllKeys)
+        {
+            transform.DOLocalMoveY(-5, 1);
+        }
+        else
+        {
+            Debug.Log("No tienes todas las llaves");
+        }
     }
 
 
@@ -103,7 +116,7 @@ public class Door : MonoBehaviour, IInteractable
     {
         if (inventoryHandler.inventory.Contains(key))
         {
-            Destroy(gameObject);
+            transform.DOLocalMoveY(-5, 1);
         }
         else
         {
@@ -116,16 +129,16 @@ public class Door : MonoBehaviour, IInteractable
     {
         if (other.CompareTag("Player"))
         {
-            activarPuertaA = true;
+            if (tipoDePuerta == TipoDePuerta.Automatica)
+            {
+                Interact();
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            activarPuertaA = false;
-        }
+
     }
 
 }

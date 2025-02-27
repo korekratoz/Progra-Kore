@@ -225,7 +225,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2203014605251549716}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c8444d444ae1ba48a97f599d8f12ad6, type: 3}
   m_Name: 
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe08757861bcdcd458be936a70ea9912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "radioDeDetecci\xF3n": 15
+  "radioDeDetecci\xF3n": 10
   layer:
     serializedVersion: 2
     m_Bits: 64

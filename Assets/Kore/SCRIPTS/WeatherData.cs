@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[System.Serializable]
 public class WeatherData
 {
     public string country;
@@ -10,5 +12,7 @@ public class WeatherData
     public float actualTemp;
     public string description;
     public float windSpeed;
+    public float latitud;
+    public float longitude;
 
 }

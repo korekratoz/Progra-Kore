@@ -10,11 +10,13 @@ public class CIDoor : Editor
 
     private Door _door; // Esta referencia la vamos a usar para nosotros poder escribir las variables que existen en el script de puerta
     private string descripcion;
+    private SerializedProperty multipleKeys;
 
 
     private void OnEnable() // OnEnable se ejecuta cuando se activa un objeto en la escena // Se activa, al tener ese script en el inspector, exclusivamente de el objeto seleccionado
     {
         _door = (Door)target;
+        multipleKeys = serializedObject.FindProperty("keys");
     }
 
     public override void OnInspectorGUI() // Este metodo sobreescribe TODOS los valores de el inspector 
@@ -45,12 +47,10 @@ public class CIDoor : Editor
                 {
                     descripcion = "Esta puerta requiere de multiples llaves para abrirse. Indica en el arreglo cuantas llaves necesita y cuales";
                     //EditorGUILayout.PropertyField
-                    
-                    // Tamaño del array de llaves
-                    SerializedProperty keysProperty = serializedObject.FindProperty("keys");
 
-                    // Mostrar el tamaño del array
-                    EditorGUILayout.PropertyField(keysProperty, true);
+                    // Tamaño del array de llaves
+                    EditorGUILayout.PropertyField(multipleKeys, new GUIContent("Llaves Requeridas"), true);
+                                      
 
                     // Aplicar cambios
                     serializedObject.ApplyModifiedProperties();

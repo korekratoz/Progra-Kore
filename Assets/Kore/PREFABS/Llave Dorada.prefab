@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: db7838cdeac4d9a4a9115d37aef10b1b, type: 2}
     - target: {fileID: 919132149155446097, guid: af7c984d402394a4898bf83fdb553b8b, type: 3}
       propertyPath: m_Name
-      value: Llave6
+      value: Llave Dorada
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: af7c984d402394a4898bf83fdb553b8b, type: 3}
       propertyPath: m_Layer
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecdfe4e7cb20e44cb02cc2e24fed821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 377c70d27a35c3243ba18ceae3414812, type: 2}
+  item: {fileID: 11400000, guid: 8a5e459b8a15d05469570ad8c909f10c, type: 2}
 --- !u!135 &2069105138488370568
 SphereCollider:
   m_ObjectHideFlags: 0
